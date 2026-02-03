@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Of Tiwaj - Fashion Reimagined</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-heading {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .parallax-bg {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .text-shadow-luxury {
+      text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    .gradient-overlay {
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+      );
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .image-zoom {
+      transition: transform 0.6s ease;
+    }
+    
+    .image-zoom:hover {
+      transform: scale(1.1);
+    }
+
+    .slide-image {
+      transition: opacity 0.6s ease;
+    }
+    
+    .split-text {
+      display: inline-block;
+      overflow: hidden;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full font-body">
+  <div id="app-container" class="w-full h-full overflow-auto" style="background-color: #050505;">
+   <!-- Navigation Bar -->
+   <nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6" style="background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+     <div id="nav-logo" class="font-heading text-2xl font-bold tracking-wider" style="color: #D4AF37;">
+      HOUSE OF TIWAJ
+     </div>
+     <div class="hidden md:flex items-center gap-10">
+      <a href="#home" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Home</a> <a href="#collections" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Collections</a> <a href="#about" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">About</a> <a href="#contact" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Contact</a>
+     </div><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:scale-105" style="background-color: #D4AF37; color: #050505;"> Shop Now </a>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="relative min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #050505 100%);">
+    <div class="grid-pattern absolute inset-0 opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 py-32 text-center">
+     <div class="fade-in-up">
+      <p id="brand-tagline" class="text-sm uppercase tracking-widest mb-6 floating" style="color: #D4AF37; letter-spacing: 0.3em;">Where Fashion Meets Art</p>
+      <h1 id="hero-title" class="font-heading font-bold mb-8 text-shadow-luxury" style="font-size: 5rem; line-height: 1.1; color: #FFFFFF;">Redefine Your<br>
+        Style Story</h1>
+      <p id="hero-description" class="text-lg mb-12 max-w-2xl mx-auto leading-relaxed" style="color: #B8B8B8;">Elevate your wardrobe with meticulously crafted pieces that celebrate individuality, confidence, and timeless elegance.</p><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" id="cta-button" class="inline-block px-10 py-5 text-sm font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-105 shine-effect" style="background-color: #D4AF37; color: #050505;"> Discover Collection </a>
+     </div><!-- Decorative Elements -->
+     <div class="absolute top-20 left-10 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #D4AF37 0%, transparent 70%);"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-10" style="background: radial-gradient(circle, #D4AF37 0%, transparent 70%);"></div>
+    </div>
+   </section><!-- Collections Grid -->
+   <section id="collections" class="py-24 px-8" style="background: linear-gradient(180deg, #050505 0%, #0f0f0f 50%, #050505 100%);">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-20 fade-in-up">
+      <div class="w-20 h-1 mx-auto mb-6" style="background: linear-gradient(90deg, transparent, #D4AF37, transparent);"></div>
+      <h2 id="collections-heading" class="font-heading text-5xl font-bold mb-4" style="color: #FFFFFF;">Our Collections</h2>
+      <p class="text-base" style="color: #888888;">Curated Excellence in Every Piece</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Collection Card 1: Ready To Wear -->
+      <div class="card-hover fade-in-up group cursor-pointer" style="animation-delay: 0.1s;">
+       <div class="relative overflow-hidden" style="background-color: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2);">
+        <div class="aspect-[3/4] overflow-hidden">
+         <img id="ready-wear-img" src="" alt="Ready To Wear Collection" loading="lazy" class="w-full h-full object-cover image-zoom slide-image" style="opacity: 1;" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #1a1a1a, #0a0a0a)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<svg class=\'w-24 h-24 opacity-30\' viewBox=\'0 0 100 120\' fill=\'none\' stroke=\'#D4AF37\' stroke-width=\'2\'><circle cx=\'50\' cy=\'30\' r=\'18\'/><line x1=\'50\' y1=\'48\' x2=\'50\' y2=\'75\'/><path d=\'M25 75 Q50 110 75 75\'/><line x1=\'25\' y1=\'75\' x2=\'15\' y2=\'115\'/><line x1=\'75\' y1=\'75\' x2=\'85\' y2=\'115\'/></svg>'; this.alt='Image unavailable';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+        </div>
+        <div class="p-8">
+         <h3 class="font-heading text-2xl font-semibold mb-3" style="color: #FFFFFF;">Ready To Wear</h3>
+         <p class="text-sm mb-6 leading-relaxed" style="color: #888888;">Contemporary designs for everyday elegance and effortless sophistication.</p><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium uppercase tracking-wider group-hover:gap-3 transition-all" style="color: #D4AF37;"> Explore 
+          <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg></a>
+        </div>
+       </div>
+      </div><!-- Collection Card 2: Native Wear -->
+      <div class="card-hover fade-in-up group cursor-pointer" style="animation-delay: 0.2s;">
+       <div class="relative overflow-hidden" style="background-color: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2);">
+        <div class="aspect-[3/4] overflow-hidden">
+         <img id="native-wear-img" src="" alt="Native Wear Collection" loading="lazy" class="w-full h-full object-cover image-zoom slide-image" style="opacity: 1;" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #1a1a1a, #0a0a0a)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<svg class=\'w-24 h-24 opacity-30\' viewBox=\'0 0 100 120\' fill=\'none\' stroke=\'#D4AF37\' stroke-width=\'2\'><rect x=\'30\' y=\'35\' width=\'40\' height=\'70\' rx=\'3\'/><line x1=\'38\' y1=\'50\' x2=\'62\' y2=\'50\'/><line x1=\'50\' y1=\'35\' x2=\'50\' y2=\'105\'/><circle cx=\'50\' cy=\'25\' r=\'8\'/></svg>'; this.alt='Image unavailable';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+        </div>
+        <div class="p-8">
+         <h3 class="font-heading text-2xl font-semibold mb-3" style="color: #FFFFFF;">Native Wear (Aso Ebi)</h3>
+         <p class="text-sm mb-6 leading-relaxed" style="color: #888888;">Traditional elegance meets modern design for cultural celebrations.</p><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium uppercase tracking-wider group-hover:gap-3 transition-all" style="color: #D4AF37;"> Explore 
+          <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg></a>
+        </div>
+       </div>
+      </div><!-- Collection Card 3: Premium Fabrics -->
+      <div class="card-hover fade-in-up group cursor-pointer" style="animation-delay: 0.3s;">
+       <div class="relative overflow-hidden" style="background-color: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.2);">
+        <div class="aspect-[3/4] overflow-hidden">
+         <img id="fabrics-img" src="" alt="Premium Fabrics Collection" loading="lazy" class="w-full h-full object-cover image-zoom slide-image" style="opacity: 1;" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #1a1a1a, #0a0a0a)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<svg class=\'w-24 h-24 opacity-30\' viewBox=\'0 0 100 120\' fill=\'none\' stroke=\'#D4AF37\' stroke-width=\'2\'><rect x=\'25\' y=\'30\' width=\'50\' height=\'65\' rx=\'2\'/><line x1=\'35\' y1=\'45\' x2=\'65\' y2=\'45\'/><line x1=\'35\' y1=\'60\' x2=\'65\' y2=\'60\'/><line x1=\'35\' y1=\'75\' x2=\'65\' y2=\'75\'/></svg>'; this.alt='Image unavailable';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+        </div>
+        <div class="p-8">
+         <h3 class="font-heading text-2xl font-semibold mb-3" style="color: #FFFFFF;">Premium Fabrics</h3>
+         <p class="text-sm mb-6 leading-relaxed" style="color: #888888;">Luxury materials handpicked for exceptional quality and texture.</p><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium uppercase tracking-wider group-hover:gap-3 transition-all" style="color: #D4AF37;"> Explore 
+          <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg></a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 px-8" style="background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+     <div class="fade-in-up">
+      <div class="w-16 h-1 mb-6" style="background-color: #D4AF37;"></div>
+      <h2 class="font-heading text-4xl font-bold mb-8" style="color: #FFFFFF;">Our Story</h2>
+      <div class="space-y-6 mb-8">
+       <p class="font-heading text-2xl font-semibold" style="color: #D4AF37;">House of Tiwaj is a luxury fashion house with more than 10 years of experience, specializing in high class fashion designs and premium fabrics.</p>
+       <p class="text-base leading-relaxed" style="color: #B8B8B8;">We offer bespoke and ready to wear pieces, sewing exclusively to our customers' measurements and preferences, no matter where they are in the world. Alongside our designs, we provide a refined selection of premium fabrics, carefully sourced to meet the highest standards of quality and elegance.</p>
+       <p class="text-base leading-relaxed" style="color: #B8B8B8;">Blending contemporary style with timeless craftsmanship, every creation reflects precision, superior materials, and an uncompromising attention to detail.</p>
+       <div class="pt-4" style="border-top: 1px solid rgba(212, 175, 55, 0.2);">
+        <p class="text-lg font-semibold italic mb-3" style="color: #D4AF37;">At House of Tiwaj, luxury is not just worn, it is experienced.</p>
+        <p class="font-heading text-xl font-bold tracking-wide" style="color: #FFFFFF;">Defined by taste. Perfected by time.</p>
+       </div>
+      </div><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium uppercase tracking-wider hover:gap-3 transition-all" style="color: #D4AF37;"> Shop Now 
+       <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></a>
+     </div>
+     <div class="fade-in-up relative" style="animation-delay: 0.2s;">
+      <div class="aspect-square rounded-lg overflow-hidden" style="border: 2px solid rgba(212, 175, 55, 0.3);">
+       <img src="https://i.ibb.co/r2jBHxxZ/A-fashion-designer-office-branded-house-of-tiwaj-3d-design-. -0000.jpg" alt="House of Tiwaj Studio" loading="lazy" class="w-full h-full object-cover" onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #1a1a1a, #0a0a0a)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<svg class=\'w-32 h-32 opacity-20\' viewBox=\'0 0 200 200\' fill=\'none\' stroke=\'#D4AF37\' stroke-width=\'2\'><circle cx=\'100\' cy=\'80\' r=\'30\'/><line x1=\'100\' y1=\'110\' x2=\'100\' y2=\'150\'/><path d=\'M60 150 Q100 200 140 150\'/><line x1=\'60\' y1=\'150\' x2=\'40\' y2=\'200\'/><line x1=\'140\' y1=\'150\' x2=\'160\' y2=\'200\'/></svg>'; this.alt='Image unavailable';">
+      </div>
+      <div class="absolute -bottom-6 -right-6 w-48 h-48 rounded-full opacity-20" style="background: radial-gradient(circle, #D4AF37 0%, transparent 70%);"></div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer id="contact" class="py-16 px-8" style="background-color: #050505; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div>
+       <div class="font-heading text-2xl font-bold mb-4" style="color: #D4AF37;">
+        HOUSE OF TIWAJ
+       </div>
+       <p class="text-sm leading-relaxed" style="color: #888888;">Redefining fashion with elegance, quality, and confidence.</p>
+      </div>
+      <div>
+       <h4 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color: #FFFFFF;">Quick Links</h4>
+       <ul class="space-y-3">
+        <li><a href="#home" class="text-sm hover:opacity-70 transition-opacity" style="color: #888888;">Home</a></li>
+        <li><a href="#collections" class="text-sm hover:opacity-70 transition-opacity" style="color: #888888;">Collections</a></li>
+        <li><a href="#about" class="text-sm hover:opacity-70 transition-opacity" style="color: #888888;">About Us</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color: #FFFFFF;">Contact</h4>
+       <p class="text-sm mb-2" style="color: #888888;">+234 810 457 0306</p>
+       <p class="text-sm mb-4" style="color: #888888;">houseoftiwaj1@gmail.com</p>
+      </div>
+      <div>
+       <h4 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color: #FFFFFF;">Follow Us</h4><a href="https://www.tiktok.com/@houseoftiwaj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm hover:opacity-70 transition-opacity" style="color: #D4AF37;">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+        </svg> @houseoftiwaj </a>
+      </div>
+     </div>
+     <div class="pt-8 text-center" style="border-top: 1px solid rgba(212, 175, 55, 0.15);">
+      <p class="text-sm mb-2" style="color: #555555;">© 2026 House of Tiwaj. All Rights Reserved.</p>
+      <p class="text-xs" style="color: #444444;">Developed by I.TEC GLOBAL</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      brand_tagline: 'Where Fashion Meets Art',
+      hero_title: 'Redefine Your Style Story',
+      hero_description: 'Elevate your wardrobe with meticulously crafted pieces that celebrate individuality, confidence, and timeless elegance.',
+      cta_button: 'Discover Collection',
+      collections_heading: 'Our Collections',
+      background_color: '#050505',
+      surface_color: '#0a0a0a',
+      text_color: '#FFFFFF',
+      primary_action_color: '#D4AF37',
+      secondary_text_color: '#888888',
+      font_family: 'Playfair Display',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const brandTagline = config.brand_tagline || defaultConfig.brand_tagline;
+      const heroTitle = config.hero_title || defaultConfig.hero_title;
+      const heroDescription = config.hero_description || defaultConfig.hero_description;
+      const ctaButton = config.cta_button || defaultConfig.cta_button;
+      const collectionsHeading = config.collections_heading || defaultConfig.collections_heading;
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryAction = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryText = config.secondary_text_color || defaultConfig.secondary_text_color;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+
+      // Update text content
+      document.getElementById('brand-tagline').textContent = brandTagline;
+      document.getElementById('hero-title').textContent = heroTitle;
+      document.getElementById('hero-description').textContent = heroDescription;
+      document.getElementById('cta-button').textContent = ctaButton;
+      document.getElementById('collections-heading').textContent = collectionsHeading;
+
+      // Update colors
+      document.getElementById('app-container').style.backgroundColor = bgColor;
+      document.getElementById('nav-logo').style.color = primaryAction;
+      document.getElementById('brand-tagline').style.color = primaryAction;
+      document.getElementById('hero-title').style.color = textColor;
+      document.getElementById('cta-button').style.backgroundColor = primaryAction;
+      document.getElementById('collections-heading').style.color = textColor;
+
+      // Update fonts
+      const headingFontStack = `${fontFamily}, serif`;
+      document.getElementById('hero-title').style.fontFamily = headingFontStack;
+      document.getElementById('collections-heading').style.fontFamily = headingFontStack;
+
+      // Update font sizes
+      document.getElementById('hero-title').style.fontSize = `${fontSize * 3.125}px`;
+      document.getElementById('hero-description').style.fontSize = `${fontSize * 1.125}px`;
+      document.getElementById('collections-heading').style.fontSize = `${fontSize * 3.125}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+            set: (value) => {
+              config.secondary_text_color = value;
+              window.elementSdk.setConfig({ secondary_text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['brand_tagline', config.brand_tagline || defaultConfig.brand_tagline],
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_description', config.hero_description || defaultConfig.hero_description],
+        ['cta_button', config.cta_button || defaultConfig.cta_button],
+        ['collections_heading', config.collections_heading || defaultConfig.collections_heading]
+      ]);
+    }
+
+    // Ready To Wear Image Slideshow
+    const readyToWearImages = [
+      'https://i.ibb.co/TxgfRjmh/0bf3939beeb0e5f7d7116f37b9c71b9b.jpg',
+      'https://i.ibb.co/7xRZxBm2/51ce6cb06b96e227606860c5d1ff6e9f.jpg',
+      'https://i.ibb.co/DDFTM2Wy/33673d3922953f9dc2c7d8246516e55f.jpg',
+      'https://i.ibb.co/8nBR6McP/1b790511c8adc333e9ab86fa569a9bd1.jpg',
+      'https://i.ibb.co/xK2yvCgD/9033f22ffbe5ee3cb23b2ca6fdc023fa.jpg',
+      'https://i.ibb.co/4RQFBvLN/bd9ed3d0ba73501cd7ba3405b1e401aa.jpg',
+      'https://i.ibb.co/Zzgdx6Zm/8f1a028a75743474a804fd03c144b179.jpg',
+      'https://i.ibb.co/gMSv3Kjy/. .jpg',
+      'https://i.ibb.co/20z41bMq/. .jpg'
+    ];
+    let currentReadyWearIndex = 0;
+    const readyWearImgElement = document.getElementById('ready-wear-img');
+    
+    readyWearImgElement.src = readyToWearImages[currentReadyWearIndex];
+    
+    setInterval(() => {
+      readyWearImgElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        currentReadyWearIndex = (currentReadyWearIndex + 1) % readyToWearImages.length;
+        readyWearImgElement.src = readyToWearImages[currentReadyWearIndex];
+        readyWearImgElement.style.opacity = '1';
+      }, 400);
+    }, 3500);
+
+    // Native Wear Image Slideshow
+    const nativeWearImages = [
+      'https://i.ibb.co/QBbhtm8/7bab10a8b7f23f1f831fdf088c405cf2.jpg',
+      'https://i.ibb.co/VYFf6grM/5fda64d21ce8f51934c4e6162485b0ff.jpg',
+      'https://i.ibb.co/Xxbn7zW0/635043753da24ecf206355edc2ec28ce.jpg',
+      'https://i.ibb.co/CKbkcMzH/536a99cc957433c39c91972ed30f81a6.jpg',
+      'https://i.ibb.co/DnBr49B/18c701093f17566470d3dadc3c52da2b.jpg',
+      'https://i.ibb.co/XfGvk7SF/4cfd2757d31e1f27f35de3952d570eb1.jpg',
+      'https://i.ibb.co/dw3LLRTV/2717364d2c04b3167669925ae8405e17.jpg',
+      'https://i.ibb.co/dsTpNZQk/86d2f4c88de130d63f602fc360fc901d.jpg',
+      'https://i.ibb.co/6RzKZRqP/c4e18d16495473d3e34dad0ff6bdcd1d.jpg'
+    ];
+    let currentNativeWearIndex = 0;
+    const nativeWearImgElement = document.getElementById('native-wear-img');
+    
+    nativeWearImgElement.src = nativeWearImages[currentNativeWearIndex];
+    
+    setInterval(() => {
+      nativeWearImgElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        currentNativeWearIndex = (currentNativeWearIndex + 1) % nativeWearImages.length;
+        nativeWearImgElement.src = nativeWearImages[currentNativeWearIndex];
+        nativeWearImgElement.style.opacity = '1';
+      }, 400);
+    }, 3500);
+
+    // Premium Fabrics Image Slideshow
+    const fabricImages = [
+      'https://i.ibb.co/QvMSwGYW/edb4d6787b1c4c531db5dfdd8ef40829.jpg',
+      'https://i.ibb.co/20VmnJLJ/6b30168e80e4c31ce663a1d849523ffb.jpg',
+      'https://i.ibb.co/PZcvYvpj/8d0e326d69866a57919013927eb3813e.jpg',
+      'https://i.ibb.co/Q7HygP7Z/236cb3902c003587e22052b47d6b823a.jpg',
+      'https://i.ibb.co/Qv8R41DY/b1294da26fb54e8bae1ee9ab4de4a78a.jpg',
+      'https://i.ibb.co/3mwBDrmk/fe3abd552b3f3ccaf16f7f5c356a3834.jpg',
+      'https://i.ibb.co/jkPFYsH0/23f20fe7d8c365a2595a832c12295d99.jpg'
+    ];
+    let currentFabricIndex = 0;
+    const fabricImgElement = document.getElementById('fabrics-img');
+    
+    fabricImgElement.src = fabricImages[currentFabricIndex];
+    
+    setInterval(() => {
+      fabricImgElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        currentFabricIndex = (currentFabricIndex + 1) % fabricImages.length;
+        fabricImgElement.src = fabricImages[currentFabricIndex];
+        fabricImgElement.style.opacity = '1';
+      }, 400);
+    }, 3500);
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c832b458631945a',t:'MTc3MDEzNDcxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
