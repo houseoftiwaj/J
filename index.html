@@ -116,23 +116,29 @@
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
  </head>
  <body class="h-full font-body">
   <div id="app-container" class="w-full h-full overflow-auto" style="background-color: #050505;">
    <!-- Navigation Bar -->
    <nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6" style="background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-     <div id="nav-logo" class="font-heading text-2xl font-bold tracking-wider" style="color: #D4AF37;">
-      HOUSE OF TIWAJ
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+     <div class="flex items-center justify-center gap-3"><img src="https://i.ibb.co/JFkdCwbM/. -0002.jpg" alt="House of Tiwaj Logo" loading="lazy" class="h-10 w-10 rounded-full object-cover" style="border: 2px solid #D4AF37;" onerror="console.error('Logo failed to load:', this.src); this.style.background='#D4AF37';">
+      <div id="nav-logo" class="font-heading text-2xl font-bold tracking-wider whitespace-nowrap" style="color: #D4AF37;">
+       HOUSE OF TIWAJ
+      </div>
      </div>
-     <div class="hidden md:flex items-center gap-10">
+     <div class="hidden md:flex items-center gap-10 flex-1 justify-center">
       <a href="#home" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Home</a> <a href="#collections" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Collections</a> <a href="#about" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">About</a> <a href="#contact" class="text-sm font-light uppercase tracking-wider hover:opacity-70 transition-opacity" style="color: #E8E8E8;">Contact</a>
-     </div><a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:scale-105" style="background-color: #D4AF37; color: #050505;"> Shop Now </a>
+     </div>
+     <div class="flex justify-end">
+      <a href="https://wa.link/a8dgto" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-300 hover:scale-105" style="background-color: #D4AF37; color: #050505;"> Shop Now </a>
+     </div>
     </div>
    </nav><!-- Hero Section -->
    <section id="home" class="relative min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, #050505 0%, #1a1a1a 50%, #050505 100%);">
-    <div class="grid-pattern absolute inset-0 opacity-30"></div>
+    <div class="grid-pattern absolute inset-0 opacity-30"></div><!-- Random Hero Image -->
+    <div id="random-hero-image" class="absolute inset-0 opacity-20 overflow-hidden flex items-center justify-center"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-8 py-32 text-center">
      <div class="fade-in-up">
       <p id="brand-tagline" class="text-sm uppercase tracking-widest mb-6 floating" style="color: #D4AF37; letter-spacing: 0.3em;">Where Fashion Meets Art</p>
@@ -265,7 +271,7 @@
   </div>
   <script>
     const defaultConfig = {
-      brand_tagline: 'Where Fashion Meets Art',
+      brand_tagline: 'Where Every Cut Defines Luxury',
       hero_title: 'Redefine Your Style Story',
       hero_description: 'Elevate your wardrobe with meticulously crafted pieces that celebrate individuality, confidence, and timeless elegance.',
       cta_button: 'Discover Collection',
@@ -494,6 +500,42 @@
     } else {
       onConfigChange(defaultConfig);
     }
+
+    // Random Hero Images
+    const heroImages = [
+      'https://i.ibb.co/JFkdCwbM/. -0002.jpg',
+      'https://i.ibb.co/nx8Bhxm/. -0004.jpg',
+      'https://i.ibb.co/hx40W4tW/. -0005.jpg',
+      'https://i.ibb.co/WWF5D6DP/. -0006.jpg',
+      'https://i.ibb.co/vCL7LdX1/file-000000005b587246b0a516377529c7ab.png',
+      'https://i.ibb.co/6KD43t1/. -0001.jpg',
+      'https://i.ibb.co/60zRc2Mk/file-. f933a8fa3ea38e5ce.png',
+      'https://i.ibb.co/XxBG15Bd/file-00000000a9947246b9088a4652797e55.png',
+      'https://i.ibb.co/VWP34X9q/file-000000002ed4722fb1e9ec39118ac587.png'
+    ];
+
+    function displayRandomHeroImage() {
+      const randomIndex = Math.floor(Math.random() * heroImages.length);
+      const selectedImage = heroImages[randomIndex];
+      const heroContainer = document.getElementById('random-hero-image');
+      
+      const imgElement = document.createElement('img');
+      imgElement.src = selectedImage;
+      imgElement.alt = 'Hero Image';
+      imgElement.loading = 'lazy';
+      imgElement.style.width = '100%';
+      imgElement.style.height = '100%';
+      imgElement.style.objectFit = 'cover';
+      imgElement.onerror = function() {
+        console.error('Hero image failed to load:', this.src);
+      };
+      
+      heroContainer.innerHTML = '';
+      heroContainer.appendChild(imgElement);
+    }
+
+    // Display random image on page load and refresh
+    displayRandomHeroImage();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c832b458631945a',t:'MTc3MDEzNDcxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ce7ff2870f3ecdb',t:'MTc3MTE5MTk3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
